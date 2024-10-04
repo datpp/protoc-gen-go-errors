@@ -11,7 +11,7 @@ import (
 	"google.golang.org/protobuf/compiler/protogen"
 	"google.golang.org/protobuf/proto"
 
-	"github.com/lyouthzzz/protoc-gen-go-errors/errors"
+	"github.com/datpp/protoc-gen-go-errors/errors"
 )
 
 const (
@@ -99,13 +99,14 @@ func genErrorsReason(_ *protogen.Plugin, _ *protogen.File, g *protogen.Generated
 		}
 
 		err := &errorInfo{
-			Name:       string(enum.Desc.Name()),
-			Value:      string(v.Desc.Name()),
-			CamelValue: case2Camel(string(v.Desc.Name())),
-			HTTPCode:   enumCode,
-			Message:    enumMessage,
-			Comment:    comment,
-			HasComment: len(comment) > 0,
+			Name:               string(enum.Desc.Name()),
+			Value:              string(v.Desc.Name()),
+			CamelValue:         case2Camel(string(v.Desc.Name())),
+			HTTPCode:           enumCode,
+			Message:            enumMessage,
+			Comment:            comment,
+			HasComment:         len(comment) > 0,
+			HasMessageArgument: strings.Contains(enumMessage, "%"),
 		}
 		ew.Errors = append(ew.Errors, err)
 	}

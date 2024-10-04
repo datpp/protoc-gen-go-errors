@@ -4,20 +4,20 @@ package example;
 
 import "errors/errors.proto";
 
-option go_package = "github.com/lyouthzzz/protoc-gen-go-errors/examples";
+option go_package = "github.com/datpp/protoc-gen-go-errors/examples";
 
 enum ErrorReason {
-  // 设置缺省错误码
+  // Set default error code
   option (errors.default_code) = 500;
-  // 设置缺省错误信息
-  option (errors.default_message) = "未知错误";
+  // Set default error message
+  option (errors.default_message) = "Unknown error";
 
-  // 参数错误
-  ERROR_REASON_INVALID_PARAM = 0 [(errors.code) = 400, (errors.message) = "参数错误"];
-  // 用户未授权
-  ERROR_REASON_USER_UNAUTHORIZED = 1 [(errors.code) = 401, (errors.message) = "用户未授权"];
-  // 用户无权限
-  ERROR_REASON_USER_FORBIDDEN = 2 [(errors.code) = 403, (errors.message) = "用户无权限"];
-  // 409 业务错误：xxx状态冲突
-  ERROR_REASON_STATUS_CONFLICT = 3 [(errors.code) = 409, (errors.message) = "xxx状态冲突"];
+  // Invalid parameter
+  REASON_INVALID_PARAM = 0 [(errors.code) = 400, (errors.message) = "Invalid parameter"];
+  // User unauthorized
+  REASON_USER_UNAUTHORIZED = 1 [(errors.code) = 401, (errors.message) = "User unauthorized"];
+  // User forbidden
+  REASON_USER_FORBIDDEN = 2 [(errors.code) = 403, (errors.message) = "User forbidden"];
+  // 409 Business error: xxx status conflict
+  REASON_STATUS_CONFLICT = 3 [(errors.code) = 409, (errors.message) = "%d status conflict"];
 }

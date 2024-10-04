@@ -1,4 +1,4 @@
-module github.com/lyouthzzz/protoc-gen-go-errors
+module github.com/datpp/protoc-gen-go-errors
 
 go 1.18
 

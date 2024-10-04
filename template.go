@@ -10,13 +10,14 @@ import (
 var errorsTemplate string
 
 type errorInfo struct {
-	Name       string
-	Value      string
-	HTTPCode   int
-	Message    string
-	CamelValue string
-	Comment    string
-	HasComment bool
+	Name               string
+	Value              string
+	HTTPCode           int
+	Message            string
+	CamelValue         string
+	Comment            string
+	HasComment         bool
+	HasMessageArgument bool
 }
 
 type errorWrapper struct {

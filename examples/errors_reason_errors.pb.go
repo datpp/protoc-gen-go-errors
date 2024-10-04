@@ -11,78 +11,82 @@ import (
 // is compatible with the kratos package it is being compiled against.
 const _ = errors.SupportPackageIsVersion1
 
-// 参数错误
+// Invalid parameter
 func IsErrorReasonInvalidParam(err error) bool {
 	if err == nil {
 		return false
 	}
 	e := errors.FromError(err)
-	return e.Reason == ErrorReason_ERROR_REASON_INVALID_PARAM.String() && e.Code == 400
+	return e.Reason == ErrorReason_REASON_INVALID_PARAM.String() && e.Code == 400
 }
 
-// 参数错误
-func ErrorErrorReasonInvalidParam(format string, args ...interface{}) *errors.Error {
-	return errors.New(400, ErrorReason_ERROR_REASON_INVALID_PARAM.String(), fmt.Sprintf(format, args...))
+// Invalid parameter
+func ErrorReasonInvalidParamWithCustomMessage(format string, args ...interface{}) *errors.Error {
+	return errors.New(400, ErrorReason_REASON_INVALID_PARAM.String(), fmt.Sprintf(format, args...))
 }
 
-// 参数错误
-func ErrorMessageErrorReasonInvalidParam() *errors.Error {
-	return errors.New(400, ErrorReason_ERROR_REASON_INVALID_PARAM.String(), "参数错误")
+// Invalid parameter
+
+func ErrorReasonInvalidParam() *errors.Error {
+	return errors.New(400, ErrorReason_REASON_INVALID_PARAM.String(), "Invalid parameter")
 }
 
-// 用户未授权
+// User unauthorized
 func IsErrorReasonUserUnauthorized(err error) bool {
 	if err == nil {
 		return false
 	}
 	e := errors.FromError(err)
-	return e.Reason == ErrorReason_ERROR_REASON_USER_UNAUTHORIZED.String() && e.Code == 401
+	return e.Reason == ErrorReason_REASON_USER_UNAUTHORIZED.String() && e.Code == 401
 }
 
-// 用户未授权
-func ErrorErrorReasonUserUnauthorized(format string, args ...interface{}) *errors.Error {
-	return errors.New(401, ErrorReason_ERROR_REASON_USER_UNAUTHORIZED.String(), fmt.Sprintf(format, args...))
+// User unauthorized
+func ErrorReasonUserUnauthorizedWithCustomMessage(format string, args ...interface{}) *errors.Error {
+	return errors.New(401, ErrorReason_REASON_USER_UNAUTHORIZED.String(), fmt.Sprintf(format, args...))
 }
 
-// 用户未授权
-func ErrorMessageErrorReasonUserUnauthorized() *errors.Error {
-	return errors.New(401, ErrorReason_ERROR_REASON_USER_UNAUTHORIZED.String(), "用户未授权")
+// User unauthorized
+
+func ErrorReasonUserUnauthorized() *errors.Error {
+	return errors.New(401, ErrorReason_REASON_USER_UNAUTHORIZED.String(), "User unauthorized")
 }
 
-// 用户无权限
+// User forbidden
 func IsErrorReasonUserForbidden(err error) bool {
 	if err == nil {
 		return false
 	}
 	e := errors.FromError(err)
-	return e.Reason == ErrorReason_ERROR_REASON_USER_FORBIDDEN.String() && e.Code == 403
+	return e.Reason == ErrorReason_REASON_USER_FORBIDDEN.String() && e.Code == 403
 }
 
-// 用户无权限
-func ErrorErrorReasonUserForbidden(format string, args ...interface{}) *errors.Error {
-	return errors.New(403, ErrorReason_ERROR_REASON_USER_FORBIDDEN.String(), fmt.Sprintf(format, args...))
+// User forbidden
+func ErrorReasonUserForbiddenWithCustomMessage(format string, args ...interface{}) *errors.Error {
+	return errors.New(403, ErrorReason_REASON_USER_FORBIDDEN.String(), fmt.Sprintf(format, args...))
 }
 
-// 用户无权限
-func ErrorMessageErrorReasonUserForbidden() *errors.Error {
-	return errors.New(403, ErrorReason_ERROR_REASON_USER_FORBIDDEN.String(), "用户无权限")
+// User forbidden
+
+func ErrorReasonUserForbidden() *errors.Error {
+	return errors.New(403, ErrorReason_REASON_USER_FORBIDDEN.String(), "User forbidden")
 }
 
-// 409 业务错误：xxx状态冲突
+// 409 Business error: xxx status conflict
 func IsErrorReasonStatusConflict(err error) bool {
 	if err == nil {
 		return false
 	}
 	e := errors.FromError(err)
-	return e.Reason == ErrorReason_ERROR_REASON_STATUS_CONFLICT.String() && e.Code == 409
+	return e.Reason == ErrorReason_REASON_STATUS_CONFLICT.String() && e.Code == 409
 }
 
-// 409 业务错误：xxx状态冲突
-func ErrorErrorReasonStatusConflict(format string, args ...interface{}) *errors.Error {
-	return errors.New(409, ErrorReason_ERROR_REASON_STATUS_CONFLICT.String(), fmt.Sprintf(format, args...))
+// 409 Business error: xxx status conflict
+func ErrorReasonStatusConflictWithCustomMessage(format string, args ...interface{}) *errors.Error {
+	return errors.New(409, ErrorReason_REASON_STATUS_CONFLICT.String(), fmt.Sprintf(format, args...))
 }
 
-// 409 业务错误：xxx状态冲突
-func ErrorMessageErrorReasonStatusConflict() *errors.Error {
-	return errors.New(409, ErrorReason_ERROR_REASON_STATUS_CONFLICT.String(), "xxx状态冲突")
+// 409 Business error: xxx status conflict
+
+func ErrorReasonStatusConflict(args ...interface{}) *errors.Error {
+	return errors.New(409, ErrorReason_REASON_STATUS_CONFLICT.String(), fmt.Sprintf("%d status conflict", args...))
 }
